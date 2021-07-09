@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-public class JDBC_with_GUI extends JFrame {
+public class StudentInsert extends JFrame {
     private JPanel mainPanel;
     private JLabel stdid_label;
     private JLabel stdname_label;
@@ -17,7 +17,7 @@ public class JDBC_with_GUI extends JFrame {
     private JLabel response;
     private JLabel info;
 
-    public JDBC_with_GUI(String title){
+    public StudentInsert(String title){
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
@@ -46,7 +46,7 @@ public class JDBC_with_GUI extends JFrame {
         });
     }
     public static void main(String[] args) {
-        JFrame frame = new JDBC_with_GUI("Student Info");
+        JFrame frame = new StudentInsert("Student Info");
         frame.setVisible(true);
         frame.setSize(700,350);
     }

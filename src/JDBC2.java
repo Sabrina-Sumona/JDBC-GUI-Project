@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class JDBC {
+public class JDBC2 {
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
@@ -20,53 +20,53 @@ public class JDBC {
         return con;
     }
 
-    public void insertStudent(int std_id, String std_name, String department, int batch) throws SQLException {
+    public void insertBook(int book_id, String book_name, String author, int price) throws SQLException {
         this.connection = this.getConnection();
 
         this.preparedStatement = this.connection.prepareStatement(
-                "INSERT INTO student_info (std_id, std_name, department, batch) VALUES (?,?,?,?)"
+                "INSERT INTO book_info (book_id, book_name, author, price) VALUES (?,?,?,?)"
         );
 
-        this.preparedStatement.setInt(1, std_id);
-        this.preparedStatement.setString(2, std_name);
-        this.preparedStatement.setString(3, department);
-        this.preparedStatement.setInt(4, batch);
+        this.preparedStatement.setInt(1, book_id);
+        this.preparedStatement.setString(2, book_name);
+        this.preparedStatement.setString(3, author);
+        this.preparedStatement.setInt(4, price);
 
         int affectedRows = this.preparedStatement.executeUpdate();
         System.out.println("-----------------------------------------------");
-        System.out.println(affectedRows + " student's data has inserted into students database...");
+        System.out.println(affectedRows + " book's data has inserted into students database...");
 
         this.connection.close();
         this.preparedStatement.close();
     }
 
-    public String viewStudent(int std_id) throws SQLException {
+    public String viewBook(int book_id) throws SQLException {
         this.connection = this.getConnection();
 
         this.preparedStatement = this.connection.prepareStatement(
-                "SELECT * FROM `student_info` WHERE std_id = ?"
+                "SELECT * FROM `book_info` WHERE book_id = ?"
         );
 
-        this.preparedStatement.setInt(1, std_id);
+        this.preparedStatement.setInt(1, book_id);
 
         this.resultSet = this.preparedStatement.executeQuery();
         int id = 0;
         String name = null;
-        int btc = 0;
-        String dept = null;
+        int price = 0;
+        String author = null;
         while (resultSet.next()) {
-            id = Integer.parseInt(this.resultSet.getString("std_id"));
-            name = this.resultSet.getString("std_name");
-            btc = Integer.parseInt(this.resultSet.getString("batch"));
-            dept = this.resultSet.getString("department");
+            id = Integer.parseInt(this.resultSet.getString("book_id"));
+            name = this.resultSet.getString("book_name");
+            price = Integer.parseInt(this.resultSet.getString("price"));
+            author = this.resultSet.getString("author");
         }
 
         String res = "";
         if(name == null){
-            res = "Sorry!\nStudent has not been found.";
+            res = "Sorry!\nBook has not been found.";
 
         } else {
-            res = "Student has been found.\n\nID: " + id + "\n\nName: " + name + "\n\nBatch: " + btc + "\n\nDepartment: " + dept;
+            res = "Book has been found.\n\nID: " + id + "\n\nName: " + name + "\n\nPrice: " + price + "\n\nAuthor: " + author;
         }
 
         this.connection.close();
@@ -75,44 +75,44 @@ public class JDBC {
         return res;
     }
 
-    public void updateStudent(int std_id, String std_name, String department, int batch) throws SQLException {
+    public void updateBook(int book_id, String book_name, String author, int price) throws SQLException {
         this.connection = this.getConnection();
 
         this.preparedStatement = this.connection.prepareStatement(
-                "UPDATE `student_info` SET `std_name` = ?, `department` = ?, `batch` = ? WHERE `std_id` = ?"
+                "UPDATE `book_info` SET `book_name` = ?, `author` = ?, `price` = ? WHERE `book_id` = ?"
         );
 
-        this.preparedStatement.setString(1, std_name);
-        this.preparedStatement.setString(2, department);
-        this.preparedStatement.setInt(3, batch);
-        this.preparedStatement.setInt(4, std_id);
+        this.preparedStatement.setString(1, book_name);
+        this.preparedStatement.setString(2, author);
+        this.preparedStatement.setInt(3, price);
+        this.preparedStatement.setInt(4, book_id);
 
         int affectedRows = this.preparedStatement.executeUpdate();
         System.out.println("-----------------------------------------------");
-        System.out.println(affectedRows + " student's data has updated into students database...");
+        System.out.println(affectedRows + " book's data has updated into students database...");
 
         this.connection.close();
         this.preparedStatement.close();
     }
 
-    public String deleteStudent(Integer std_id) throws SQLException {
+    public String deleteBook(Integer book_id) throws SQLException {
         this.connection = this.getConnection();
 
         this.preparedStatement = this.connection.prepareStatement(
-                "    DELETE FROM `student_info` WHERE `student_info`.`std_id` = ?;"
+                "    DELETE FROM `book_info` WHERE `book_info`.`book_id` = ?;"
         );
 
-        this.preparedStatement.setInt(1, std_id);
+        this.preparedStatement.setInt(1, book_id);
 
         int affectedRows = this.preparedStatement.executeUpdate();
 
         String res = "";
 
         if(affectedRows == 0){
-            res = "Sorry!\nStudent has not been found.";
+            res = "Sorry!\nBook has not been found.";
 
         } else {
-            res = "Student has been deleted SuccessFully.";
+            res = "Book has been deleted SuccessFully.";
         }
 
         this.connection.close();

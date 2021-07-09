@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="JDBC_with_GUI">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="BookInsert">
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="20" left="20" bottom="20" right="20"/>
     <constraints>
@@ -8,39 +8,39 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="c46b4" class="javax.swing.JLabel" binding="stdid_label">
+      <component id="c46b4" class="javax.swing.JLabel" binding="bookid_label">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Student id:"/>
+          <text value="Book id:"/>
         </properties>
       </component>
-      <component id="adca8" class="javax.swing.JLabel" binding="stdname_label">
+      <component id="adca8" class="javax.swing.JLabel" binding="bookname_label">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Student name:"/>
+          <text value="Book name:"/>
         </properties>
       </component>
-      <component id="5ac07" class="javax.swing.JLabel" binding="stddept_label">
+      <component id="5ac07" class="javax.swing.JLabel" binding="author_label">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Student department:"/>
+          <text value="Book author:"/>
         </properties>
       </component>
-      <component id="d13e4" class="javax.swing.JLabel" binding="stdbtc_label">
+      <component id="d13e4" class="javax.swing.JLabel" binding="price_label">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Student batch:"/>
+          <text value="Price:"/>
         </properties>
       </component>
-      <component id="8f10e" class="javax.swing.JTextField" binding="std_id">
+      <component id="8f10e" class="javax.swing.JTextField" binding="bookid">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -48,7 +48,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="ed547" class="javax.swing.JTextField" binding="std_name">
+      <component id="ed547" class="javax.swing.JTextField" binding="bookname">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -56,7 +56,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="4933b" class="javax.swing.JTextField" binding="std_dept">
+      <component id="4933b" class="javax.swing.JTextField" binding="author">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -64,7 +64,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="d4e7a" class="javax.swing.JTextField" binding="std_btc">
+      <component id="d4e7a" class="javax.swing.JTextField" binding="price">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
