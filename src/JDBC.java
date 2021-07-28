@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class JDBC {
+public class JDBC { 
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
